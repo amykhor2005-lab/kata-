@@ -1,0 +1,173 @@
+<!DOCTYPE html> <!-- DOCTYPE: document type -->
+
+<html lang="zh-TW">
+
+<head>
+	<title>KATA 小學堂</title>
+	<meta charset="utf-8"></meta>
+	<link rel="stylesheet" href="style1.css">
+	<style>
+		body{
+			background-image:url('background3.jpg');
+			background-repeat:no-repeat;
+			background-size:cover;
+			background-attachment:fixed;
+		}
+		
+	</style>
+<body>
+	 <div id="quiz-container">
+			<h1>KATA 小學堂</h1>
+			<div id="question"></div>
+			<audio id="audio" controls>
+				<source id="audioSource" src="" type="audio/mpeg">
+			</audio>
+			<div id="options"></div>
+			 <button onclick="checkAnswer()">下一題</button>
+			<div id="score"></div>
+			<button onclick="goToHomePage()">回首頁</button>
+	</div>
+	<script>
+			var questions =[
+      {
+        question: "SATU",
+        audioSrc: "MUSIC1.mp3",
+        options: ["一", "二", "三"],
+        correctAnswer: "一",
+      },
+	   {
+        question: "ENAM",
+		audioSrc: "MUSIC6.mp3",
+        options: ["三", "二", "六"],
+        correctAnswer: "六",
+      },
+      {
+        question: "DUA",
+        audioSrc: "MUSIC2.mp3",
+        options: ["五", "六", "二"],
+        correctAnswer: "二",
+      },
+	  
+	  {
+        question: "EMPAT",
+		audioSrc: "MUSIC4.mp3",
+        options: ["六", "四", "九"],
+        correctAnswer: "四",
+      },
+	  {
+        question: "LIMA",
+		audioSrc: "MUSIC5.mp3",
+        options: ["	八", "三", "五"],
+        correctAnswer: "五",
+      },
+	 {
+        question: "TIGA",
+		audioSrc: "MUSIC3.mp3",
+        options: ["三", "四", "十"],
+        correctAnswer: "三",
+      },
+	  {
+        question: "TUJUH",
+		audioSrc: "MUSIC7.mp3",
+        options: ["七", "五", "八"],
+        correctAnswer: "七",
+      },
+	   {
+        question: "SEMBILAN",
+		audioSrc: "MUSIC9.mp3",
+        options: ["二", "九", "四"],
+        correctAnswer: "九",
+      },
+	  {
+        question: "LAPAN",
+		audioSrc: "MUSIC8.mp3",
+        options: ["一", "三", "八"],
+        correctAnswer: "八",
+      },
+	 
+	  {
+        question: "SEPULUH",
+		audioSrc: "MUSIC10.mp3",
+        options: ["二", "五", "十"],
+        correctAnswer: "十",
+      }, 
+    ];
+
+    var currentQuestionIndex = 0;
+    var score = 0;
+
+    function renderQuestion() {
+      var currentQuestion = questions[currentQuestionIndex];
+      displayQuestion(currentQuestion);
+      displayOptions(currentQuestion.options);
+      loadAudio(currentQuestion.audioSrc);
+    }
+
+    function displayQuestion(question) {
+      document.getElementById("question").innerText = question.question;
+    }
+
+    function displayOptions(options) {
+      var optionsContainer = document.getElementById("options");
+      optionsContainer.innerHTML = "";
+
+      for (var i = 0; i < options.length; i++) {
+        createOptionButton(options[i]);
+      }
+    }
+
+    function createOptionButton(optionText) {
+      var optionsContainer = document.getElementById("options");
+      var optionButton = document.createElement("button");
+      optionButton.innerText = optionText;
+      optionButton.onclick = function() {
+        checkAnswer(optionText);
+      };
+      optionsContainer.appendChild(optionButton);
+    }
+	
+	function checkAnswer(selectedOption) {
+      var currentQuestion = questions[currentQuestionIndex];
+      if (selectedOption === currentQuestion.correctAnswer) {
+        score++;
+      }
+
+      currentQuestionIndex++;
+      renderNextQuestionOrShowScore();
+    }
+	
+    function renderNextQuestionOrShowScore() {
+      if (currentQuestionIndex < questions.length) {
+        renderQuestion();
+      } else {
+        showScore();
+      }
+    }
+
+    function showScore() {
+      var scoreContainer = document.getElementById("score");
+      scoreContainer.innerHTML = "<h2>測驗結束！！！！<br>您的總分是 " + score + " 分</h2>";
+    }
+
+    function loadAudio(audioSrc) {
+      var audioElement = document.getElementById("audio");
+      var audioSourceElement = document.getElementById("audioSource");
+      audioSourceElement.src = audioSrc;
+      audioElement.load();
+    }
+	
+	function goToHomePage() {
+    window.location.href = "HTML.html";
+  }
+
+    renderQuestion();
+		</script>
+		
+
+</body>
+
+</html>
+	
+ 
+	
+	
