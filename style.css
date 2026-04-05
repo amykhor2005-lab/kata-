@@ -1,0 +1,47 @@
+body{
+	font-family:Simsun;
+}
+
+td{
+	text-align:center;
+	
+}
+
+img {
+	height:150px;
+	width:150px;
+	object-fit:cover;
+}
+
+image-size img{
+	height:20px;
+	width:20px;
+}
+
+button{
+	display: inline-block;
+	border: none;
+	padding: 5px 10px;
+	display: inline-block;
+	margin: 2px 2px;
+	border-radius: 15px;
+	transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: light green ;
+  color: white;
+}
+
+a:link ,a:visited{
+		color:black;
+		padding:5px 10px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		border-radius: 15px;
+}
+a:hover,a:active{
+	background-color:lavender;
+	text-decoration:underline;
+}

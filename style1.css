@@ -1,0 +1,40 @@
+body{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	min-height:100vh;
+}
+#question {
+  font-size: 40px;
+  font-weight: bold;
+  background-color:#D4EBF0;
+}
+
+#quiz-container {
+  text-align: center;
+}
+
+button {
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  background-color: #FEFDF7;
+  border: 2px solid #AED5EC;
+  color: black;
+  font-weight: bold;
+  border-radius: 20%;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2A8660;
+  border-color: #F6F3EA;
+  color: #F6F3EA;
+}
+
+
+
+
+
+	
+	
